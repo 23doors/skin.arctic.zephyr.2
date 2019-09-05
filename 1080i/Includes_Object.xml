@@ -415,6 +415,15 @@
         </definition>
     </include>
 
+    <variable name="AudioLanguage">
+        <value condition="!String.IsEmpty(ListItem.AudioLanguage)">[UPPERCASE]$INFO[ListItem.AudioLanguage][/UPPERCASE]</value>
+        <value>NONE</value>
+    </variable>
+    <variable name="SubtitleLanguage">
+        <value condition="!String.IsEmpty(ListItem.SubtitleLanguage)">[UPPERCASE]$INFO[ListItem.SubtitleLanguage][/UPPERCASE]</value>
+        <value>NONE</value>
+    </variable>
+
     <include name="Object_Codecs">
         <param name="infohide" default="true" />
         <definition>
@@ -450,7 +459,7 @@
                     <width>auto</width>
                     <aspectratio align="left">keep</aspectratio>
                     <aspectratio align="center" aligny="center">keep</aspectratio>
-                    <label>[UPPERCASE]$INFO[ListItem.AudioLanguage][/UPPERCASE]</label>
+                    <label>$VAR[AudioLanguage]</label>
                     <visible>!String.IsEmpty(ListItem.AudioLanguage)</visible>
                 </control>
                 <control type="image">
@@ -470,18 +479,8 @@
                     <width>auto</width>
                     <aspectratio align="left">keep</aspectratio>
                     <aspectratio align="center" aligny="center">keep</aspectratio>
-                    <label>[UPPERCASE]$INFO[ListItem.SubtitleLanguage][/UPPERCASE]</label>
-                    <visible>!String.IsEmpty(ListItem.AudioLanguage) + !String.IsEmpty(ListItem.SubtitleLanguage)</visible>
-                </control>
-                <control type="label">
-                    <fadetime>100</fadetime>
-                    <centertop>50%</centertop>
-                    <height>32</height>
-                    <width>auto</width>
-                    <aspectratio align="left">keep</aspectratio>
-                    <aspectratio align="center" aligny="center">keep</aspectratio>
-                    <label>NONE</label>
-                    <visible>!String.IsEmpty(ListItem.AudioLanguage) + String.IsEmpty(ListItem.SubtitleLanguage)</visible>
+                    <label>$VAR[SubtitleLanguage]</label>
+                    <visible>!String.IsEmpty(ListItem.AudioLanguage)</visible>
                 </control>
 
                 <control type="image">
