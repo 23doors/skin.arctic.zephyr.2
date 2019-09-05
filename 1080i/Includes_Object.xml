@@ -432,6 +432,58 @@
                 <itemgap>20</itemgap>
                 <usecontrolcoords>true</usecontrolcoords>
                 <visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.AudioCodec)</visible>
+
+                <control type="image">
+                    <fadetime>100</fadetime>
+                    <centertop>50%</centertop>
+                    <height>32</height>
+                    <width>32</width>
+                    <aspectratio align="left">keep</aspectratio>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <texture colordiffuse="main_fg_90">flags/audio.png</texture>
+                    <visible>!String.IsEmpty(ListItem.AudioLanguage)</visible>
+                </control>
+                <control type="label">
+                    <fadetime>100</fadetime>
+                    <centertop>50%</centertop>
+                    <height>32</height>
+                    <width>auto</width>
+                    <aspectratio align="left">keep</aspectratio>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <label>[UPPERCASE]$INFO[ListItem.AudioLanguage][/UPPERCASE]</label>
+                    <visible>!String.IsEmpty(ListItem.AudioLanguage)</visible>
+                </control>
+                <control type="image">
+                    <fadetime>100</fadetime>
+                    <centertop>50%</centertop>
+                    <height>32</height>
+                    <width>32</width>
+                    <aspectratio align="left">keep</aspectratio>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <texture colordiffuse="main_fg_90">flags/subtitles.png</texture>
+                    <visible>!String.IsEmpty(ListItem.AudioLanguage)</visible>
+                </control>
+                <control type="label">
+                    <fadetime>100</fadetime>
+                    <centertop>50%</centertop>
+                    <height>32</height>
+                    <width>auto</width>
+                    <aspectratio align="left">keep</aspectratio>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <label>[UPPERCASE]$INFO[ListItem.SubtitleLanguage][/UPPERCASE]</label>
+                    <visible>!String.IsEmpty(ListItem.AudioLanguage) + !String.IsEmpty(ListItem.SubtitleLanguage)</visible>
+                </control>
+                <control type="label">
+                    <fadetime>100</fadetime>
+                    <centertop>50%</centertop>
+                    <height>32</height>
+                    <width>auto</width>
+                    <aspectratio align="left">keep</aspectratio>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <label>NONE</label>
+                    <visible>!String.IsEmpty(ListItem.AudioLanguage) + String.IsEmpty(ListItem.SubtitleLanguage)</visible>
+                </control>
+
                 <control type="image">
                     <fadetime>100</fadetime>
                     <centertop>50%</centertop>
@@ -1004,7 +1056,7 @@
                     <param name="textcolor" value="$PARAM[textcolor]" />
                     <param name="visible" value="String.IsEqual($PARAM[container]ListItem.DBType,set)" />
                 </include>
-                
+
                 <!-- Next Aired -->
                 <include content="Object_Info_Line_Label">
                     <param name="id" value="66300" />
@@ -1870,7 +1922,7 @@
                 <align>$PARAM[align]</align>
                 <itemgap>8</itemgap>
                 <usecontrolcoords>true</usecontrolcoords>
-                
+
 
                 <control type="image">
                     <top>-17</top>
