@@ -7,10 +7,10 @@
         <control type="group" id="1">
             <visible>!String.IsEmpty(Skin.String(censor)) | !String.IsEmpty(Skin.String(censor_screenshot))</visible>
             <control type="image" id="15">
-                <width>1870</width>
-                <height>1030</height>
-                <top>25</top>
-                <left>25</left>
+                <width>1900</width>
+                <height>1060</height>
+                <top>10</top>
+                <left>10</left>
                 <texture>common/black-square.png</texture>
             </control>
             <control type="image" id="16">
