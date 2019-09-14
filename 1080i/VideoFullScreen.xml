@@ -5,15 +5,22 @@
     <controls>
 
         <control type="group" id="1">
-            <visible>!String.IsEmpty(Skin.String(censor))</visible>
-            <control type="image" id="16">
+            <visible>!String.IsEmpty(Skin.String(censor)) | !String.IsEmpty(Skin.String(censor_screenshot))</visible>
+            <control type="image" id="15">
                 <width>1870</width>
                 <height>1030</height>
                 <top>25</top>
                 <left>25</left>
-                <texture flipy="true">common/black-square.png</texture>
+                <texture>common/black-square.png</texture>
             </control>
-            <control type="label" id="15">
+            <control type="image" id="16">
+                <width>1820</width>
+                <height>980</height>
+                <top>50</top>
+                <left>50</left>
+                <texture>$INFO[Skin.String(censor_screenshot)]</texture>
+            </control>
+            <control type="label" id="17">
                 <width>auto</width>
                 <label>$INFO[Skin.String(censor)]</label>
                 <height>1080</height>
